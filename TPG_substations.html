@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <script src="TPG_substations.js"></script> 
+  </head>
+<body>
+<div class="container"><br>
+  <h4>4.3 Transmission</h4>
+  <p>Temporary Protective Grounding for Substations and Switchyards (Work Methods Manual)</p>                                       
+  <!--First dropdown-->
+  <!--equipment button-->
+  <div><div>Equipment to be grounded:</div>
+	<button type="button" class="placeHolder" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+     <span id="change1">--Select--</span>	 
+    </button>		
+		<div class="dropdown-menu">
+		  <a class="dropdown-item" id="option1" href="#">Circuit Breaker</a>
+		  <a class="dropdown-item" href="#">Regulator</a>
+		  <a class="dropdown-item" href="#">Capacitor Bank</a>
+		  <a class="dropdown-item" href="#">Transformer</a>
+		</div>
+  </div><br>
+  <!--Second dropdown-->
+  <!--TPG per phase button-->
+  <div><div class="tpgPerPhaseBtn" style="display:none;">How many TPG per phase are there?<a href=""> TPG chart</a></div>
+    <button type="button" class="tpgPerPhaseBtn" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="display:none;">
+     <span id="change2">--Select--</span>	 
+    </button>
+		<div class="dropdown-menu">
+		  <a class="dropdown-item" id="option4" href="#">1-4/0 per phase</a>
+		  <a class="dropdown-item" id="option5" href="#">2-4/0 per phase</a>
+		  <a class="dropdown-item" id="option6" href="#">3-4/0 per phase</a>
+		  <a class="dropdown-item" id="option7"href="#">Current &#8805; 105KA </a>
+		</div>
+  </div><br>
+  <!--bundled conductor button-->
+  <div><div class="bundledConductorBtn" style="display:none;">Is it a bundled conductor, and &ge; 50&#39;?</div>
+    <button type="button" class="bundledConductorBtn" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="display:none;">    
+	  <span id="change3">--Select--</span>	  
+    </button>
+		<div class="dropdown-menu">
+		  <a class="dropdown-item" id="option8" href="#">Yes</a>
+		  <a class="dropdown-item" id="option9" href="#">No</a>		  
+		</div>
+  </div><br>
+  <!--pre-job button and dropdown items-->
+  <div><div class="preJobBtn" style="display:none;">Completed pre-job briefing?</div>
+    <button type="button" class="preJobBtn" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="display:none;">
+      <span id="change4">--Select--</span>	  
+    </button>
+		<div class="dropdown-menu">
+		  <a class="dropdown-item" id="option10" href="#">Yes</a>
+		  <a class="dropdown-item" id="option11" href="#">No</a>		  
+		</div>
+  </div><br>
+    <div><div class="clearanceBtn" style="display:none;">Is there enough electrical clearance?</div>
+    <button type="button" class="clearanceBtn" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="display:none;">
+      <span id="change5">--Select--</span>	  
+    </button>
+		<div class="dropdown-menu">
+		  <a class="dropdown-item" id="option12" href="#">Yes</a>
+		  <a class="dropdown-item" id="option13" href="#">No</a>		  
+		</div>
+  </div><br>
+      <div><div class="switchBtn" style="display:none;">What kind of disconnect switch is this?</div>
+    <button type="button" class="switchBtn" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="display:none;">
+      <span id="change6">--Select--</span>	  
+    </button>
+		<div class="dropdown-menu">
+		  <a class="dropdown-item" id="option14" href="#">Vertical</a>
+		  <a class="dropdown-item" id="option15" href="#">Other</a>		  
+		</div>
+  </div><br>
+	  <div><div class="workSiteBtn" style="display:none;">Is distance between TPG & worksite &ge; 15&#39;?</div>
+    <button type="button" class="workSiteBtn" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="display:none;">
+      <span id="change7">--Select--</span>	  
+    </button>
+		<div class="dropdown-menu">
+		  <a class="dropdown-item" id="option16" href="#">Yes</a>
+		  <a class="dropdown-item" id="option17" href="#">No</a>		  
+		</div>
+  </div><br>
+  
+  	<div>
+	<!--Lists for first dropdown-->
+	  <ol>
+		<li id="firstDiv" style="display:none;">You selected Circuit Breaker, this was your first choice</li>
+		<li id="fourthDiv" style="display:none;">1-4/0 per phase, you're all done here.</li>
+		<li id="fifthDiv" Style="display:none;">The grounding cables shall be same length (&#xb1; 6&Prime;)<br>Ensure the grounding clamps have same orientation<br>Ensure inside spacing between clamps is &le; 3&Prime; </li>
+		<li id="seventhDiv" style="display:none;">Needs further evaluation, contact supervision</li>
+		<li id="bundledConductorYes" style="display:none;">Yes, Additional grounding hardware needed</li>
+		<li id="bundledConductorNo" style="display:none;">No, Additional grounding hardware needed</li>
+		<li id="preJobYes" style="display:none;">YES TO PREJOB</li>
+		<li id="preJobNo" style="display:none;">STOP! Please perform pre-job briefing.</li>
+		<li id="clearenceYes" style="display:none;">Clearence Yes</li>
+		<li id="clearenceNo" style="display:none;">Clearence No</li>
+		<li id="switchYes" style="display:none;">Yes enough distance</li>
+		<li id="switchNo" style="display:none;">No need more distance</li>		
+		<li id="workSiteYes" style="display:none;">Yes worksite is secure</li>
+		<li id="workSiteNo" style="display:none;">No worksite is not secure</li>
+	  </ol>
+	</div>
+</div>
+
+	<div>
+	  <ol>  
+		<li id="firstDiv" style="display:none;">Here is the Link 1</li>
+		<li id="fourthDiv" style="display:none;">Here is the Link 4</li>
+		<li id="seventhDiv" style="display:none;">Here is the Link 7</li>
+	  </ol>
+	</div>
+
+</body>
+</html>
